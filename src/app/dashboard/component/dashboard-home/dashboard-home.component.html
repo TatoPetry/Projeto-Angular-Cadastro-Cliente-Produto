@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #sidenav class="sidenav">
+    <!-- Menu fica dentro deste component -->
+    <mat-toolbar color="primary" class="mat-elevation-z3">
+      Menu
+    </mat-toolbar>
+
+    <app-dashboard-resources
+      [isMenu]="true"
+      (close)="sidenav.close()">
+
+      <mat-divider></mat-divider>
+
+      <mat-list-item (click)="OnLogout(sidnav)">
+        <mat-icon matListIcon>arrow_forward</mat-icon>
+        <h3 matLine>Sair</h3>
+      </mat-list-item>
+
+  </app-dashboard-resources>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+  <!-- Conteudo fica neste componet -->
+    <app-dashboard-header [sidenav]="sidenav"></app-dashboard-header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

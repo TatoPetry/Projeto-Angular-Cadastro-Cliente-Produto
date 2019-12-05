@@ -1,0 +1,80 @@
+# The following types define the data model of the example service
+# based on which the GraphQL API is generated
+
+type User @model {
+  id: ID! @isUnique
+  nome: String!
+  email: String! @isUnique
+  password: String!
+  tipo: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  cliente: [Cliente!]! @relation(name: "ClientesOnUsers")
+  produto: [Produto!]! @relation(name: "ProdutosOnUsers")
+}
+
+type Cliente @model {
+  id: ID! @isUnique
+  nome: String!
+  email: String @isUnique
+  cpf: Int! @isUnique
+  sexo: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  telefones: [Telefone!]! @relation(name: "TelefonesOnCliente")
+  endereco: Endereco! @relation(name: "EnderecoCliente")
+  situacao: Situacao! @relation(name: "SituacoesOnCliente")
+  user: [User!]! @relation(name: "ClientesOnUsers")
+  foto: File @relation(name: "ClienteFoto")
+}
+
+type Telefone @model {
+  id: ID! @isUnique
+  tipo: String!
+  numero: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  clientes: Cliente! @relation(name: "TelefonesOnCliente")
+}
+
+type Situacao @model {
+  id: ID! @isUnique
+  situacao: String!
+  clientes: [Cliente!]! @relation(name: "SituacoesOnCliente")
+}
+
+type Endereco @model {
+  id: ID! @isUnique
+  rua: String!
+  bairro: String!
+  cidade: String!
+  estado: String!
+  numero: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  clientes: Cliente! @relation(name: "EnderecoCliente")
+}
+
+type Produto @model {
+  id: ID! @isUnique
+  nome: String!
+  valor: Float!
+  ultimoValor: Float
+  descricao: String
+  grupo: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  user: [User!]! @relation(name: "ProdutosOnUsers")
+  foto: File @relation(name: "ProdutoFoto")
+}
+
+type File @model {
+  id: ID! @isUnique
+  name: String
+  secret: String
+  size: Int
+  url: String
+  contentType: String
+  produto: Produto @relation(name: "ProdutoFoto")
+  cliente: Cliente @relation(name: "ClienteFoto")
+}
