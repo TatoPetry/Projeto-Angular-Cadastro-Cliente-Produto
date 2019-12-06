@@ -1,1 +1,9 @@
-<p>Lista de Produtos</p>
+<mat-nav-list>
+
+  <a mat-list-item routerLink="./" *ngFor="let produto of produtos$ | async">
+      <img matListAvatar src="assets/images/icone-produtos.png" [title]="produto.nome">
+      <h3 matLine>{{ produto.nome }}</h3>
+      <p matLine>{{ produto.valor }}</p>
+  </a>
+
+</mat-nav-list>

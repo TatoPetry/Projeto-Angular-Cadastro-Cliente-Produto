@@ -13,8 +13,8 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     canActivateChild: [ AuthGuard ],
     children: [
-      { path: '', component: ProdutoListComponent },
       { path: 'cadastrar', component: ProdutoCadastrarComponent },
+      { path: '', component: ProdutoListComponent },
     ]
   }
 ];

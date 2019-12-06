@@ -9,13 +9,13 @@ import { AllProdutosQuery, ALL_PRODUTOS_QUERY } from './produto.graphql';
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutoService {
+export class ProtosService {
 
   constructor(
     private apollo: Apollo
   ) { }
 
-  allProdutos(): Observable<Produtos[]> {
+  allClientes(): Observable<Produtos[]> {
     return this.apollo
       .query<AllProdutosQuery>({
         query: ALL_PRODUTOS_QUERY

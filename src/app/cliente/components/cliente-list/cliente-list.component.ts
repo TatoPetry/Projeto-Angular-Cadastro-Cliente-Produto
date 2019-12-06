@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Clientes } from 'src/app/core/models/clientes.model';
+import { ClientesService } from 'src/app/core/services/clientes.service';
 
 @Component({
   selector: 'app-cliente-list',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteListComponent implements OnInit {
 
-  constructor() { }
+  clientes$: Observable<Clientes[]>;
+
+  constructor(
+    private clienteServices: ClientesService
+  ) { }
 
   ngOnInit() {
+    this.clientes$ = this.clienteServices.allClientes();
   }
 
 }
