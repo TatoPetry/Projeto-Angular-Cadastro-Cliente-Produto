@@ -9,7 +9,7 @@ import { AllProdutosQuery, ALL_PRODUTOS_QUERY } from './produto.graphql';
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutoService {
+export class ProdutosService {
 
   constructor(
     private apollo: Apollo

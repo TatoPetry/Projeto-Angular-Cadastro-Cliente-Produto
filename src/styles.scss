@@ -10,3 +10,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer {
   flex: 1 1 auto;
 }
+
+/* Classe scss para os spinner da aplicação ficarem alinhado na tela
+ margin: superior laterDireita inferior lateralEsquerda*/
+.spinner {
+  margin: 30px auto 0 auto;
+}

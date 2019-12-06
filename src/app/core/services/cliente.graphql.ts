@@ -6,13 +6,13 @@ export interface AllClienteQuery {
 }
 
 export const ALL_CLIENTES_QUERY = gql`
-  query allClientesQuery {
-    allClientes (
+  query AllClientesQuery {
+  allClientes(
       orderBy: nome_ASC
     ) {
       id
       nome
       email
-    }
   }
+}
 `;

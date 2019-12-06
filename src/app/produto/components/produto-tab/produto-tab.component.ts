@@ -6,12 +6,12 @@ import { Component } from '@angular/core';
     <nav mat-tab-nav-bar backgroundColor="primary">
 
       <a mat-tab-link
-      routerLink="./"
-      routerLinkActivate
-      #produtosRla="routerLinkActive"
-      [active]="produtosRla.isActive"
-      [routerLinkActiveOptions]="{exact: true}">
-        Produtos
+        routerLink="./"
+        routerLinkActive
+        #produtosRla="routerLinkActive"
+        [active]="produtosRla.isActive"
+        [routerLinkActiveOptions]="{exact: true}">
+          Produtos
       </a>
 
       <a mat-tab-link

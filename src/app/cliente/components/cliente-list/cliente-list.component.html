@@ -1,9 +1,19 @@
 <mat-nav-list>
 
-  <a mat-list-item routerLink="./" *ngFor="let cliente of cliente$ | async">
+  <ng-container *ngIf="clientes$ | async as clientes; else loadingClientes">
+    <a mat-list-item routerLink="./" *ngFor="let cliente of clientes">
       <img matListAvatar src="assets/images/user-no-photo.png" [title]="cliente.nome">
       <h3 matLine>{{ cliente.nome }}</h3>
       <p matLine>{{ cliente.email }}</p>
-  </a>
+    </a>
+  </ng-container>
+
+  <ng-template #loadingClientes>
+    <mat-spinner
+      class="spinner"
+      diameter="50"
+      strokeWidth="3">
+    </mat-spinner>
+  </ng-template>
 
 </mat-nav-list>

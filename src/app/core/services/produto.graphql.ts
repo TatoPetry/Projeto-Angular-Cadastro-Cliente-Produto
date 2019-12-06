@@ -7,7 +7,7 @@ export interface AllProdutosQuery {
 
 export const ALL_PRODUTOS_QUERY = gql`
   query AllProdutosQuery {
-    allProdutoes(
+  allProdutoes(
       orderBy: nome_ASC
     ) {
       id

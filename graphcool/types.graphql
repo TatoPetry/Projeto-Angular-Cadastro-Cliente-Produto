@@ -17,7 +17,7 @@ type Cliente @model {
   id: ID! @isUnique
   nome: String!
   email: String @isUnique
-  cpf: Int! @isUnique
+  cpf: String! @isUnique
   sexo: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -31,10 +31,11 @@ type Cliente @model {
 type Telefone @model {
   id: ID! @isUnique
   tipo: String!
-  numero: Int!
+  numero: String!
+  dDD: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  clientes: Cliente! @relation(name: "TelefonesOnCliente")
+  clientes: Cliente @relation(name: "TelefonesOnCliente")
 }
 
 type Situacao @model {
@@ -52,7 +53,7 @@ type Endereco @model {
   numero: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
-  clientes: Cliente! @relation(name: "EnderecoCliente")
+  clientes: Cliente @relation(name: "EnderecoCliente")
 }
 
 type Produto @model {

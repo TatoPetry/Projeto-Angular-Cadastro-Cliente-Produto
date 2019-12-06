@@ -1,9 +1,19 @@
 <mat-nav-list>
 
-  <a mat-list-item routerLink="./" *ngFor="let produto of produtos$ | async">
-      <img matListAvatar src="assets/images/icone-produtos.png" [title]="produto.nome">
-      <h3 matLine>{{ produto.nome }}</h3>
-      <p matLine>{{ produto.valor }}</p>
-  </a>
+  <ng-container *ngIf="produtos$ | async as produtos; else loadingProdutos">
+    <a mat-list-item routerLink="./" *ngFor="let produto of produtos">
+        <img matListAvatar src="assets/images/icone-produtos.png" [title]="produto.nome">
+        <h3 matLine>{{ produto.nome }}</h3>
+        <p matLine>{{ produto.valor }}</p>
+    </a>
+  </ng-container>
+
+  <ng-template #loadingProdutos>
+    <mat-spinner
+      class="spinner"
+      diameter="50"
+      strokerWidth="3">
+    </mat-spinner>
+  </ng-template>
 
 </mat-nav-list>
