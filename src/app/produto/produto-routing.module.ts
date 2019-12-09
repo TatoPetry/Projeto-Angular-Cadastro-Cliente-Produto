@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProdutoTabComponent } from './components/produto-tab/produto-tab.component';
+
 import { AuthGuard } from '../login/auth.guard';
-import { ProdutoCadastrarComponent } from './components/produto-cadastrar/produto-cadastrar.component';
 import { ProdutoListComponent } from './components/produto-list/produto-list.component';
+import { ProdutoTabComponent } from './components/produto-tab/produto-tab.component';
+import { ProdutoCadastrarComponent } from './components/produto-cadastrar/produto-cadastrar.component';
+import { ProdutoWindowComponent } from './components/produto-window/produto-window.component';
 
 
 const routes: Routes = [
@@ -16,7 +18,8 @@ const routes: Routes = [
       { path: 'cadastrar', component: ProdutoCadastrarComponent },
       { path: '', component: ProdutoListComponent },
     ]
-  }
+  },
+  { path: ':id', component: ProdutoWindowComponent, canActivate: [ AuthGuard ] }
 ];
 
 @NgModule({

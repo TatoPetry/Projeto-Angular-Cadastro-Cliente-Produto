@@ -1,19 +1,28 @@
 <mat-nav-list>
 
   <ng-container *ngIf="produtos$ | async as produtos; else loadingProdutos">
-    <a mat-list-item routerLink="./" *ngFor="let produto of produtos">
-        <img matListAvatar src="assets/images/icone-produtos.png" [title]="produto.nome">
-        <h3 matLine>{{ produto.nome }}</h3>
-        <p matLine>{{ produto.valor }}</p>
-    </a>
+    <ng-container *ngIf="produtos.length > 0; else noProdutos">
+        <a mat-list-item [routerLink]="'[../', produto.id]" *ngFor="let produto of produtos">
+          <img matListAvatar src="assets/images/icone-produtos.png" [title]="produto.nome">
+          <h3 matLine>{{ produto.nome }}</h3>
+          <p matLine>{{ produto.valor }}</p>
+        </a>
+    </ng-container>
   </ng-container>
 
-  <ng-template #loadingProdutos>
-    <mat-spinner
-      class="spinner"
-      diameter="50"
-      strokerWidth="3">
-    </mat-spinner>
-  </ng-template>
-
 </mat-nav-list>
+
+<ng-template #loadingProdutos>
+  <mat-spinner
+    class="spinner"
+    diameter="50"
+    strokeWidth="4">
+  </mat-spinner>
+</ng-template>
+
+<ng-template #noProdutos>
+  <app-no-record
+    icon="emoji_objects"
+    title="Nenhum produto cadastrado.">
+  </app-no-record>
+</ng-template>

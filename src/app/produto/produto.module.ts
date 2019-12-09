@@ -5,6 +5,7 @@ import { ProdutoTabComponent } from './components/produto-tab/produto-tab.compon
 import { SharedModule } from '../shared/shared.module';
 import { ProdutoListComponent } from './components/produto-list/produto-list.component';
 import { ProdutoCadastrarComponent } from './components/produto-cadastrar/produto-cadastrar.component';
+import { ProdutoWindowComponent } from './components/produto-window/produto-window.component';
 
 
 @NgModule({
@@ -12,6 +13,6 @@ import { ProdutoCadastrarComponent } from './components/produto-cadastrar/produt
     SharedModule,
     ProdutoRoutingModule
   ],
-  declarations: [ProdutoTabComponent, ProdutoListComponent, ProdutoCadastrarComponent]
+  declarations: [ProdutoTabComponent, ProdutoListComponent, ProdutoCadastrarComponent, ProdutoWindowComponent]
 })
 export class ProdutoModule { }

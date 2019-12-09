@@ -5,6 +5,7 @@ import { ClienteTabComponent } from './components/cliente-tab/cliente-tab.compon
 import { SharedModule } from '../shared/shared.module';
 import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
 import { ClienteCadastrarComponent } from './components/cliente-cadastrar/cliente-cadastrar.component';
+import { ClienteWindowComponent } from './components/cliente-window/cliente-window.component';
 
 
 @NgModule({
@@ -12,6 +13,6 @@ import { ClienteCadastrarComponent } from './components/cliente-cadastrar/client
     SharedModule,
     ClienteRoutingModule
   ],
-  declarations: [ClienteTabComponent, ClienteListComponent, ClienteCadastrarComponent]
+  declarations: [ClienteTabComponent, ClienteListComponent, ClienteCadastrarComponent, ClienteWindowComponent]
 })
 export class ClienteModule { }

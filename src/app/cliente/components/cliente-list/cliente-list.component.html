@@ -1,19 +1,28 @@
 <mat-nav-list>
 
   <ng-container *ngIf="clientes$ | async as clientes; else loadingClientes">
-    <a mat-list-item routerLink="./" *ngFor="let cliente of clientes">
-      <img matListAvatar src="assets/images/user-no-photo.png" [title]="cliente.nome">
-      <h3 matLine>{{ cliente.nome }}</h3>
-      <p matLine>{{ cliente.email }}</p>
-    </a>
+    <ng-container *ngIf="clientes.length > 0; else noClientes">
+        <a mat-list-item [routerLink]="['../', cliente.id]" *ngFor="let cliente of clientes">
+          <img matListAvatar src="assets/images/user-no-photo.png" [title]="cliente.nome">
+          <h3 matLine>{{ cliente.nome }}</h3>
+          <p matLine>{{ cliente.email }}</p>
+        </a>
+    </ng-container>
   </ng-container>
 
-  <ng-template #loadingClientes>
-    <mat-spinner
-      class="spinner"
-      diameter="50"
-      strokeWidth="3">
-    </mat-spinner>
-  </ng-template>
-
 </mat-nav-list>
+
+<ng-template #loadingClientes>
+  <mat-spinner
+    class="spinner"
+    diameter="50"
+    strokeWidth="4">
+  </mat-spinner>
+</ng-template>
+
+<ng-template #noClientes>
+  <app-no-record
+    icon="group"
+    title="Nenhum cliente cadastrado.">
+  </app-no-record>
+</ng-template>
